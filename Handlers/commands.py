@@ -1,31 +1,30 @@
-
+import random
 
 from aiogram.types import Message, CallbackQuery
 from aiogram import Router, F
 from aiogram.filters import Command
-
 from keyboards.inline import shop_kb, price_kb
 from keyboards.inline import menu_kb
 from keyboards.inline import second_menu_kb, second_price_kb
 
 
+
 command_router = Router()
+admin_router = Router
+
 
 @command_router.message(Command("start"))
 async def start_handler(message: Message):
-    start_text = (
-        "Привет, я твой бот\n"
-        "Напиши /help чтобы узнать все команды\n"
-
-    )
-    await message.answer(text=start_text)
+    photo=(
+        "https://static.tildacdn.com/tild3465-6637-4364-b965-383235366432/-.png")
+    await message.answer_photo(photo=photo, caption="привет я твой бот, постараюсь подобрать скин для тебя\n Напиши /help чтобы начать")
 
 @command_router.message(Command("about"))
 async def about_handler(message: Message):
-    about_text = (
-        "Найду тебе сетап скинов по твоей цене"
+    photo = (
+        "https://cdn.eloboost24.eu/media/737935/zF3b5J2WWoMKG7zy.webp"
         )
-    await message.answer(text=about_text)
+    await message.answer_photo(photo=photo,caption="найду скин для тебя")
 
 
 @command_router.message(Command("help"))
@@ -37,6 +36,7 @@ async def help_handler(message: Message):
         "/knifes - сможешь увидеть 10 ножей \n"
         "/review - можешь оставить отзыв\n"
         "/price - сетапчик по твоей цене\n"
+        "/form - форма для сета\n"
         "если ты хочешь найди себе тиммейта для игры, то обратись к этому боту @searchteam_cs2_bot"
 
 
@@ -85,8 +85,10 @@ async def react_to_buy(message:Message):
 #отвечаем на команду shop
 @command_router.message(Command("shop"))
 async def shop_info(message: Message):
-    shop_message="ты вызвал команду /shop\n Тут можешь познокомиться с магазинов где можешь купить скин:"
-    await message.answer(text=shop_message,reply_markup=shop_kb)
+    photo=(
+        "https://ixbt.online/gametech/covers/2023/02/16/nova-filepond-ZLl2bG.png"
+    )
+    await message.answer_photo(photo=photo,caption="ты вызвал команду /shop\n Тут можешь познокомиться с магазинов где можешь купить скин:",reply_markup=shop_kb)
 
 
 
@@ -115,21 +117,24 @@ async def send_review(message: Message):
 
 @command_router.message(Command("knifes"))
 async def send_knifes(message: Message):
-    await message.answer(text="перейдя по ссылкам ты сможешь рассмотреть ножи",reply_markup=menu_kb)
+    text="нажав на кнопку ты сможешь рассмотреть ножи"
+    await message.answer(text=text,reply_markup=menu_kb)
 
 @command_router.callback_query(F.data.in_(["prev","next"]))
 async def knifes_callback(callback:CallbackQuery):
     if callback.data =="next":
-        await callback.message.edit_text("перейдя по ссылкам ты сможешь рассмотреть ножи",reply_markup=second_menu_kb)
+        await callback.message.edit_text("нажав на кнопку ты сможешь рассмотреть ножи",reply_markup=second_menu_kb)
     else:
-        await callback.message.edit_text("перейдя по ссылкам ты сможешь рассмотреть ножи", reply_markup=menu_kb)
+        await callback.message.edit_text("нажав на кнопку ты сможешь рассмотреть ножи", reply_markup=menu_kb)
     await callback.answer()
 
 
 #сет по твоей цене
 @command_router.message(Command("price"))
 async def send_builds(message: Message):
-    await message.answer(text="сейчас подберем тебе сетап, выбери категорию:",reply_markup=price_kb)
+    text="сейчас подберем тебе сетап, выбери категорию:"
+
+    await message.answer(text=text,reply_markup=price_kb)
 
 @command_router.callback_query(F.data.in_(["pred","nexty"]))
 async def price_callback(callback:CallbackQuery):
@@ -142,7 +147,3 @@ async def price_callback(callback:CallbackQuery):
 
 
 
-
-@command_router.message()
-async def echo_handler(message: Message):
-    await message.answer(message.text)

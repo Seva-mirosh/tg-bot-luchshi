@@ -20,10 +20,10 @@ shop_kb=InlineKeyboardMarkup(
 #это ножи 1 страница
 menu_kb=InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text="Bowie Knife (Нож Боуи)", url="https://wiki.cs.money/weapons/bowie-knife/doppler-sapphire")],
-         [InlineKeyboardButton(text="M9 Bayonet (Штык-нож М9)", url="https://wiki.cs.money/weapons/m9-bayonet/gamma-doppler-emerald")],
-        [InlineKeyboardButton(text="Butterfly Knife (Нож-бабочка)", url="https://wiki.cs.money/weapons/butterfly-knife/doppler-sapphire")],
-        [InlineKeyboardButton(text="Bayonet (Штык-нож)", url="https://wiki.cs.money/weapons/bayonet/doppler-ruby")],
+        [InlineKeyboardButton(text="Bowie Knife (Нож Боуи)", callback_data="knifes_1")],
+         [InlineKeyboardButton(text="M9 Bayonet (Штык-нож М9)", callback_data="knifes_2")],
+        [InlineKeyboardButton(text="Butterfly Knife (Нож-бабочка)", callback_data="knifes_3")],
+        [InlineKeyboardButton(text="Bayonet (Штык-нож)", callback_data="knifes_4")],
 
     [InlineKeyboardButton(text="👈", callback_data="prev"),
     InlineKeyboardButton(text="👉", callback_data="next")]
@@ -33,10 +33,10 @@ menu_kb=InlineKeyboardMarkup(
 #это ножи 2 страница
 second_menu_kb=InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text="Shadow Daggers (Тычковые ножи)",url="https://wiki.cs.money/weapons/shadow-daggers/doppler-phase-2")],
-        [InlineKeyboardButton(text="Falchion Knife (Фальшион) ", url="https://wiki.cs.money/weapons/falchion-knife/doppler-black-pearl")],
-        [InlineKeyboardButton(text="Gut Knife (Нож с лезвием-крюком)", url="https://wiki.cs.money/weapons/gut-knife/doppler-ruby")],
-        [InlineKeyboardButton(text="Flip Knife (Складной нож)", url="https://wiki.cs.money/weapons/flip-knife/doppler-black-pearl")],
+        [InlineKeyboardButton(text="Shadow Daggers (Тычковые ножи)",callback_data="knifes_5")],
+        [InlineKeyboardButton(text="Falchion Knife (Фальшион) ", callback_data="knifes_6")],
+        [InlineKeyboardButton(text="Gut Knife (Нож с лезвием-крюком)", callback_data="knifes_7")],
+        [InlineKeyboardButton(text="Flip Knife (Складной нож)", callback_data="knifes_8")],
 
 
         [InlineKeyboardButton(text="👈", callback_data="prev"),
