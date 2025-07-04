@@ -83,7 +83,7 @@ def add_user(name, skin,cash):
     conn.commit()
 def show_table():
     res=cursor.execute('''
-    SELECT*FROM users
+    SELECT*FROM weapons
     ''')
     return res.fetchall()
 print(show_table())
