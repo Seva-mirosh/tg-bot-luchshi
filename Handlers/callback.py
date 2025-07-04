@@ -1,6 +1,7 @@
 from aiogram import Router,F
 from aiogram.types import CallbackQuery, InputMediaPhoto
-
+from Handlers.commands import about_handler,shop_info,send_review,send_knifes,send_builds
+from Handlers.state import cmd_start
 callback_router = Router()
 
 #если нужна помощь
@@ -101,4 +102,54 @@ async def start_knifes_4(callback: CallbackQuery):
     await callback.message.edit_media(media=media)
 
 
+#отзыв
+
+@callback_router.callback_query(F.data=="review")
+async def start_review(callback:CallbackQuery):
+    await callback.answer("подождите")
+    await callback.message.answer("спасибо за отзыв")
+
+@callback_router.callback_query(F.data=="review_1")
+async def start_review_1(callback:CallbackQuery):
+    await callback.answer("подождите")
+    await callback.message.answer("спасибо за отзыв")
+
+@callback_router.callback_query(F.data=="review_2")
+async def start_review_2(callback:CallbackQuery):
+    await callback.answer("подождите")
+    await callback.message.answer("спасибо за отзыв")
+#кнопки на help
+@callback_router.callback_query(F.data=="about")
+async def start_about(callback:CallbackQuery):
+    await callback.answer()
+    await about_handler(callback.message)
+
+@callback_router.callback_query(F.data=="shop")
+async def start_shop(callback:CallbackQuery):
+    await callback.answer()
+    await shop_info(callback.message)
+
+
+@callback_router.callback_query(F.data=="knifes")
+async def start_knifes(callback:CallbackQuery):
+    await callback.answer()
+    await send_knifes(callback.message)
+
+@callback_router.callback_query(F.data=="review_3")
+async def start_review_3(callback:CallbackQuery):
+    await callback.answer()
+    await send_review(callback.message)
+
+
+@callback_router.callback_query(F.data=="price")
+async def start_price(callback:CallbackQuery):
+    await callback.answer()
+    await send_builds(callback.message)
+
+
+
+@callback_router.callback_query(F.data=="form")
+async def start_form(callback:CallbackQuery):
+    await callback.answer()
+    await cmd_start(callback.message)
 

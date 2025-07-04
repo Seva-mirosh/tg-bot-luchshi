@@ -1,9 +1,9 @@
-import random
+
 
 from aiogram.types import Message, CallbackQuery
 from aiogram import Router, F
 from aiogram.filters import Command
-from keyboards.inline import shop_kb, price_kb
+from keyboards.inline import shop_kb, price_kb, review_kb, about_commands
 from keyboards.inline import menu_kb
 from keyboards.inline import second_menu_kb, second_price_kb
 
@@ -41,7 +41,7 @@ async def help_handler(message: Message):
 
 
         )
-    await message.answer(text=help_text)
+    await message.answer(text=help_text,reply_markup=about_commands)
 
 
 #отвечаем на любой хай
@@ -108,11 +108,7 @@ async def send_photo(message: Message):
 
 @command_router.message(Command("review"))
 async def send_review(message: Message):
-    await message.answer_poll(
-        question="как тебе мой бот",
-        options=["имба","хорошо","нормально"],
-        is_anonymous=False
-    )
+    await message.answer(text="оставь отзыв",reply_markup=review_kb)
 
 
 @command_router.message(Command("knifes"))

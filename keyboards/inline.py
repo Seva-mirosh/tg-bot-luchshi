@@ -71,4 +71,25 @@ second_price_kb=InlineKeyboardMarkup(
          InlineKeyboardButton(text="➡️", callback_data="nexty")]
     ]
 )
+#отзыв
+review_kb=InlineKeyboardMarkup(
+
+    inline_keyboard=[
+        [InlineKeyboardButton(text="хорошо",callback_data="review")],
+        [InlineKeyboardButton(text="нормально",callback_data="review_1")],
+        [InlineKeyboardButton(text="плохо",callback_data="review_2")]
+    ]
+)
+
+about_commands=InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="about",callback_data="about"),
+        InlineKeyboardButton(text="shop",callback_data="shop")],
+        [InlineKeyboardButton(text="knifes",callback_data="knifes"),
+        InlineKeyboardButton(text="review",callback_data="review_3")],
+        [InlineKeyboardButton(text="price",callback_data="price"),
+        InlineKeyboardButton(text="form",callback_data="form")]
+
+    ]
+)
 
